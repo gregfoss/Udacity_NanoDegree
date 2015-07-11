@@ -17,9 +17,13 @@ def compute_r_squared(data, predictions):
     http://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html
     http://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
     '''
-    r2_mea = np.mean(data)
-    r2_nom = np.sum((data - predictions)**2)
-    r2_den = np.sum((data - r2_mea)**2)
-    r_squared = 1 - (r2_nom / r2_den)
+    #r2_mea = np.mean(data)
+    #r2_nom = np.sum((data - predictions)**2)
+    #r2_den = np.sum((data - r2_mea)**2)
+    #r_squared = 1 - (r2_nom / r2_den)
+    
+    #r_squared = 1 - ((np.sum((data - predictions)**2)/np.sum((data - np.mean(data))**2)))
+    
+    r_squared = 1 - (np.sum(np.square(data-predictions))/(np.sum(np.square(data-np.mean(data)))))
     
     return r_squared
